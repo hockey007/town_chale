@@ -1,10 +1,7 @@
 package com.projects.town_chale.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,9 +10,9 @@ import lombok.Setter;
 @Setter
 public class Vendor extends BaseModel {
 
-    @Column(name = "user_id")
-    @JsonProperty("user_id")
-    private Long userId;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(name = "company_name")
     @JsonProperty("company_name")
