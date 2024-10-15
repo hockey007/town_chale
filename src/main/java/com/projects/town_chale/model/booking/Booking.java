@@ -1,6 +1,9 @@
-package com.projects.town_chale.model;
+package com.projects.town_chale.model.booking;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.projects.town_chale.model.BaseModel;
+import com.projects.town_chale.model.journey.JourneySeat;
+import com.projects.town_chale.model.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

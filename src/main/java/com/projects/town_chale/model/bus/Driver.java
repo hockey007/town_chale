@@ -1,6 +1,7 @@
-package com.projects.town_chale.model;
+package com.projects.town_chale.model.bus;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.projects.town_chale.model.BaseModel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.Getter;

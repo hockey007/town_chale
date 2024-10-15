@@ -1,5 +1,6 @@
-package com.projects.town_chale.model;
+package com.projects.town_chale.model.bus;
 
+import com.projects.town_chale.model.BaseModel;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

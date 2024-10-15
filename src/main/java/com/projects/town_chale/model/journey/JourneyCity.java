@@ -1,6 +1,8 @@
-package com.projects.town_chale.model;
+package com.projects.town_chale.model.journey;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.projects.town_chale.model.BaseModel;
+import com.projects.town_chale.model.city.City;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;

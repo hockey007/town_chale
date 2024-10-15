@@ -1,18 +1,18 @@
-package com.projects.town_chale.model;
+package com.projects.town_chale.model.bus;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.projects.town_chale.model.BaseModel;
+import com.projects.town_chale.model.user.Vendor;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
 @Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class Bus extends BaseModel {
 

@@ -1,5 +1,6 @@
-package com.projects.town_chale.model;
+package com.projects.town_chale.model.city;
 
+import com.projects.town_chale.model.BaseModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
