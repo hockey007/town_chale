@@ -3,7 +3,7 @@ package com.projects.town_chale;
 public class TestConstants {
 
     public static final String TEST_EMAIl = "test@email.com";
-    public static final String TEST_PASSWORD = "test@password";
+    public static final String TEST_PASSWORD = "Test@password1";
 
     public static final String USER_REGISTERED_SUCCESSFULLY = "User registered successfully";
     public static final String USER_LOGIN_SUCCESSFUL = "User login successful";
