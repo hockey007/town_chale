@@ -1,5 +1,6 @@
 package com.projects.town_chale.controller;
 
+import com.projects.town_chale.dto.ScheduleResponseDto;
 import com.projects.town_chale.dto.SuccessResponse;
 import com.projects.town_chale.model.Schedule;
 import com.projects.town_chale.model.ScheduleRequestDto;
@@ -37,13 +38,13 @@ public class ScheduleController {
     }
 
     @GetMapping("/get")
-    public ResponseEntity<SuccessResponse<List<Schedule>>> getSchedules(
+    public ResponseEntity<SuccessResponse<List<ScheduleResponseDto>>> getSchedules(
             @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") Date date,
             @RequestParam Long fromStopId,
             @RequestParam Long toStopId
     ) {
-        List<Schedule> schedules = scheduleService.getScheduledBusesByDateAndRoute(fromStopId, toStopId, date);
-        SuccessResponse<List<Schedule>> response = SuccessResponse.<List<Schedule>>builder()
+        List<ScheduleResponseDto> schedules = scheduleService.getScheduledBusesByDateAndRoute(fromStopId, toStopId, date);
+        SuccessResponse<List<ScheduleResponseDto>> response = SuccessResponse.<List<ScheduleResponseDto>>builder()
                 .message("Fetched Buses successfully")
                 .data(schedules)
                 .build();

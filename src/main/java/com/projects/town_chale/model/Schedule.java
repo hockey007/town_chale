@@ -31,6 +31,9 @@ public class Schedule extends BaseModel {
     @JsonIgnore
     private Route route;
 
+    // TODO: update count when seat is added to schedule
+    private Integer scheduleSeatCnt;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
     private Date departureTime;
