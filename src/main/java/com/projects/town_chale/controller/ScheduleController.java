@@ -1,10 +1,12 @@
 package com.projects.town_chale.controller;
 
 import com.projects.town_chale.dto.ScheduleResponseDto;
+import com.projects.town_chale.dto.SeatResponseDto;
 import com.projects.town_chale.dto.SuccessResponse;
 import com.projects.town_chale.model.Schedule;
 import com.projects.town_chale.model.ScheduleRequestDto;
 import com.projects.town_chale.service.ScheduleService;
+import com.projects.town_chale.service.SeatScheduleService;
 import com.projects.town_chale.util.ScheduleDtoConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,6 +24,9 @@ public class ScheduleController {
     @Autowired
     private ScheduleService scheduleService;
 
+    @Autowired
+    private SeatScheduleService seatScheduleService;
+
     @PostMapping("/create")
     public ResponseEntity<SuccessResponse<Schedule>> createSchedule(@RequestBody ScheduleRequestDto requestDto) {
         Schedule savedSchedule = scheduleService.createSchedule(ScheduleDtoConverter.fromDto(requestDto),
@@ -37,8 +42,8 @@ public class ScheduleController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping("/get")
-    public ResponseEntity<SuccessResponse<List<ScheduleResponseDto>>> getSchedules(
+    @GetMapping("/available")
+    public ResponseEntity<SuccessResponse<List<ScheduleResponseDto>>> getAvailableSchedules(
             @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") Date date,
             @RequestParam Long fromStopId,
             @RequestParam Long toStopId
@@ -47,6 +52,21 @@ public class ScheduleController {
         SuccessResponse<List<ScheduleResponseDto>> response = SuccessResponse.<List<ScheduleResponseDto>>builder()
                 .message("Fetched Buses successfully")
                 .data(schedules)
+                .build();
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/seats/available")
+    public ResponseEntity<SuccessResponse<List<SeatResponseDto>>> getAvailableSeats(
+            @RequestParam Long scheduleId,
+            @RequestParam Long fromStopId,
+            @RequestParam Long toStopId
+    ) {
+        List<SeatResponseDto> availableSeats = seatScheduleService.getAvailableSeats(scheduleId, fromStopId, toStopId);
+        SuccessResponse<List<SeatResponseDto>> response = SuccessResponse.<List<SeatResponseDto>>builder()
+                .message("Fetched available seats successfully")
+                .data(availableSeats)
                 .build();
 
         return new ResponseEntity<>(response, HttpStatus.OK);

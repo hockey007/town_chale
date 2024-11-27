@@ -15,7 +15,7 @@ import java.util.Date;
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class ScheduleResponseDto {
-    private Long busId;
+    private Long scheduleId;
     private Long routeId;
     private Date departureTime;
     private Date arrivalTime;

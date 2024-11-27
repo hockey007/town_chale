@@ -17,7 +17,7 @@ public class ScheduleDtoConverter {
 
     public static ScheduleResponseDto fromSchedule(Schedule schedule) {
         return ScheduleResponseDto.builder()
-                .busId(schedule.getBus().getId())
+                .scheduleId(schedule.getId())
                 .routeId(schedule.getRoute().getId())
                 .departureTime(schedule.getDepartureTime())
                 .arrivalTime(schedule.getArrivalTime())
