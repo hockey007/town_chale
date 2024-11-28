@@ -31,4 +31,15 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(PassengerDataException.class)
+    public ResponseEntity<ErrorResponse> handlePassengerDataException(PassengerDataException exception) {
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .error(true)
+                .details("Invalid Passenger details provided")
+                .message(exception.getMessage())
+                .build();
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
 }
