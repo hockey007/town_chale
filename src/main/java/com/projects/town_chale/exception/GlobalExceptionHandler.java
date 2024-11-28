@@ -20,4 +20,15 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(UserAuthenticationException.class)
+    public ResponseEntity<ErrorResponse> handleUserAuthenticationException(UserAuthenticationException exception) {
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .error(true)
+                .details("Invalid User details provided")
+                .message(exception.getMessage())
+                .build();
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
 }
