@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class Stop extends BaseModel {
+public class Stop extends BaseModel<Long> {
 
     @Column(nullable = false, unique = true)
     private String name;

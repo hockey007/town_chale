@@ -11,12 +11,12 @@ import java.util.Date;
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class BaseModel {
+public abstract class BaseModel<T> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
-    private Long id;
+    private T id;
 
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp

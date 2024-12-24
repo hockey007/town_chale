@@ -17,10 +17,14 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Booking extends BaseModel implements Serializable {
+public class Booking extends BaseModel<Long> implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    // TODO: create this field across other services like orders, payments etc
+    // @Column(unique = true, nullable = false)
+    // private UUID publicId;
 
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BookingInfo> bookedSeats;

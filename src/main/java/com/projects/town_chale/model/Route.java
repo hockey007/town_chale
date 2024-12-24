@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @Entity
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class Route extends BaseModel {
+public class Route extends BaseModel<Long> {
     @Column(nullable = false, unique = true)
     private String name;
 

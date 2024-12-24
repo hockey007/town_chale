@@ -31,7 +31,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void login(String email, String password) {
+    public User login(String email, String password) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         if(optionalUser.isEmpty()) {
             throw new UserAuthenticationException("User not found with email: " + email);
@@ -41,5 +41,7 @@ public class UserServiceImpl implements IUserService {
         if(!passwordEncoder.matches(password, user.getPassword())) {
             throw new UserAuthenticationException("Invalid credentials");
         }
+
+        return user;
     }
 }

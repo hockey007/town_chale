@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class CancellationInfo extends BaseModel {
+public class CancellationInfo extends BaseModel<Long> {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cancellation_id", nullable = false)
     private Cancellation cancellation;
